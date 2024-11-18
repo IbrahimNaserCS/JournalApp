@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" style="display: flex; flex-direction: column; gap: 5px; justify-content: center; align-items: center; margin-top: 30px;">
+            {% for date, note in content %}
+                <div class="row" style="display: flex; gap: 5px;">
+                    <p>{{date}}</p>
+                    <p>{{note}}</p>
+                    <form action="#" method="post">
+                        <button name = "delete_note" value="{{note}}" type="submit" style="background: none; border: none;">
+                            <img src="static/trashcan.png" alt="Delete" width="20px;">
+                        </button>
+                    </form>
+                </div>
+            {% endfor %}
+        <form action="/" method="POST">
+            <button name="addnew" type="submit" class="btn btn-primary" style="margin-top: 30px; margin-bottom:30px;">Add New Entry</button>
+        </form>
+    </div>
+</body>
+</html>
