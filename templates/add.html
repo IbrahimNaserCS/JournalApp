@@ -8,13 +8,23 @@
 <body>
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 30px;">
         <form action="#" method="post">
-            <textarea name="Text1" cols="100" rows="10"></textarea>
+            <textarea onkeyup="counter()" placeholder="Enter note here" name="Text1" cols="100" rows="10"></textarea>
+            <p>Character Count: <span class="value">0</span></p>
             <button type="submit" name="add" class="btn btn-primary" style="margin-top: 30px; margin-bottom:40px;">Add Entry</button>
         </form>
         <form action="/view" method="post">
             <button type="submit" name="view" class="btn btn-secondary">View/Edit Previous Entries</button>
         </form>
     </div>
+    <script>
+        const textarea = document.querySelector('textarea');
+        const value = document.querySelector('.value');
+        function counter(){
+            const text = textarea.value;
+            const textLength = text.length
+            value.innerText = `${textLength}`
+        }
+    </script>
 
 </body>
 </html>
